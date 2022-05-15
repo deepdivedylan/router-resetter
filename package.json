@@ -1,6 +1,8 @@
 {
   "name": "router-resetter",
   "version": "0.0.1",
+  "license": "Apache-2.0",
+  "description": "A module to automatically sign in to the TotalPlay FiberHome HG6145F Router and reset it",
   "author": {
     "name": "Dylan McDonald",
     "email": "dylan@deepdivedylan.io"
@@ -9,9 +11,10 @@
     "type": "git",
     "url": "git@github.com:deepdivedylan/router-resetter.git"
   },
+  "main": "index.js",
+  "type": "module",
   "dependencies": {
-    "casperjs": "^1.1.4",
-    "dotenv": "^16.0.1"
-  },
-  "license": "Apache-2.0"
+    "dotenv": "^16.0.1",
+    "puppeteer": "^14.1.0"
+  }
 }
