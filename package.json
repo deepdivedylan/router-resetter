@@ -1,0 +1,17 @@
+{
+  "name": "router-resetter",
+  "version": "0.0.1",
+  "author": {
+    "name": "Dylan McDonald",
+    "email": "dylan@deepdivedylan.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deepdivedylan/router-resetter.git"
+  },
+  "dependencies": {
+    "casperjs": "^1.1.4",
+    "dotenv": "^16.0.1"
+  },
+  "license": "Apache-2.0"
+}
