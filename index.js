@@ -1,7 +1,8 @@
+import { exec } from 'child-process-promise';
 import 'dotenv/config';
 import puppeteer from 'puppeteer';
 
-const main = async () => {
+const restartRouter = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto('http://' + process.env.ROUTER_IP);
@@ -51,4 +52,14 @@ const main = async () => {
     await browser.close();
 };
 
-await main();
+const speedTest = async () => {
+    const command = await exec('speedtest-cli --json');
+    const tooSlow = parseInt(process.env.ROUTER_TOOSLOW);
+    const result = JSON.parse(command.stdout);
+    return result.download < tooSlow;
+};
+
+const shouldReset = await speedTest();
+if (shouldReset) {
+    await restartRouter();
+}
