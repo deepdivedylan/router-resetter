@@ -26,7 +26,7 @@ const restartRouter = async () => {
     await page.waitForSelector(management);
     await page.click(management);
 
-    // click "Device Management
+    // click "Device Management"
     const deviceManagement = 'ul.sec-menu li span[onclick*="menuLeft.changeSecMenu(this,\\"manage\\",1)"]';
     await page.waitForSelector(deviceManagement);
     await page.click(deviceManagement);
@@ -40,7 +40,6 @@ const restartRouter = async () => {
     const iframe = 'iframe[src="reboot.html"]';
     const reboot = '#Restart_button';
     await page.waitForSelector(iframe);
-    console.log(page.mainFrame().childFrames());
     for (const frame of page.mainFrame().childFrames()) {
         if (frame.url().endsWith('/html/reboot.html')) {
             await frame.waitForSelector(reboot);
